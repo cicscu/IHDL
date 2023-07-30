@@ -269,8 +269,11 @@ def cnn_build(X_train, k, num_classes):
     return model
 
 
-def cnn_train(model, X_train, y_train, X_test, y_test, k, batch_size, epochs ,verbose=1):  
+def cnn_train(model, X_train, y_train, X_test, y_test, k, batch_size, epochs ,verbose1='True'):  
     history = []
+    verbose = 1
+    if verbose1 == 'False':
+	    verbose=0
     for i in range(k):
         historyt = model[i].fit(X_train[i], y_train[i],
                   batch_size=batch_size,
