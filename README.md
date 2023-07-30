@@ -10,13 +10,15 @@ The IHDL framework is developed by combining the unsupervised clustering and the
 # Requirements:
 ```
 Tensorflow 1.14.0
+sklearn
+functools
 Scikit-learn
 numpy
 keras
 lime
 mdtraj
-msmbuilder
-xlrt
+xlrd
+csv
 XlsxWriter
 ```
 
@@ -36,9 +38,9 @@ parser.add_argument('--labels_file',help='The labels file(not need to run cluste
 parser.add_argument('--n_clusters', help='The number of cluster')
 parser.add_argument('--batch_size', help='CNN train batch size')
 parser.add_argument('--epochs', help='CNN train epochs')
-parser.add_argument('--print_detail', help='Print details (0 for not printing, 1 for printing)')
-parser.add_argument('--print_acc', help='Print accuracy (0 for not printing, 1 for printing)')
-parser.add_argument('--save_models', help='Save models (0 for not saving, 1 for saving).')
+parser.add_argument('--print_detail', help='Print details ( True or False)')
+parser.add_argument('--print_acc', help='Print accuracy (True or False)')
+parser.add_argument('--save_models', help='Save models (True or False).')
 parser.add_argument('--atom_file', help='Specify the filename for saving the importance scores of atoms')
 parser.add_argument('--res_file', help='Specify the filename for saving the importance scores of residues')
 ```
@@ -48,25 +50,25 @@ Usage:
 ## Run clustering and classification in turn. Only need the topology file and the trajectory file.
 
 ```
-python main_all.py --need_clustering=True --need_cal_feature=True --traj_file='your_traj.nc' --top_file='your_top.pdb' --n_clusters=cluster_number --batch_size=N --epochs=M --print_detail=1 --print_acc='True' --save_models=0 --atom_file='atom_name' --res_file='res_name'
+python main_all.py --need_clustering=True --need_cal_feature=True --traj_file='your_traj.nc' --top_file='your_top.pdb' --n_clusters=cluster_number --batch_size=N --epochs=M --print_detail='True' --print_acc='True' --save_models='True' --atom_file='atom_name' --res_file='res_name'
 ```
 
 ## Run clustering with your feature file. Please provide the the topology file, the trajectory file, and the feature file.
 
 ```
-python main_all.py --need_clustering=True --need_cal_feature=False --feature_file='your_feature' --traj_file='your_traj.nc' --top_file='your_traj.pdb' --n_clusters=cluster_number --batch_size=N --epochs=M --print_detail=1 --print_acc='True' --save_models=0 --atom_file='atom' --res_file='res'
+python main_all.py --need_clustering=True --need_cal_feature=False --feature_file='your_feature' --traj_file='your_traj.nc' --top_file='your_traj.pdb' --n_clusters=cluster_number --batch_size=N --epochs=M --print_detail='True' --print_acc='True' --save_models='True' --atom_file='atom' --res_file='res'
 ```
 
 ## Train the classification model by self-provided label. Please provide the the topology file, the trajectory file, and the label file.
 
 ```
-python main_all.py --need_clustering=False --need_cal_feature=False --labels_file='your_label.npy' --traj_file='your_traj.nc' --top_file='your_top.pdb' --n_clusters=cluster_number --batch_size=N --epochs=M --print_detail=1 --print_acc='True' --save_models=0 --atom_file='atom' --res_file='res'
+python main_all.py --need_clustering=False --need_cal_feature=False --labels_file='your_label.npy' --traj_file='your_traj.nc' --top_file='your_top.pdb' --n_clusters=cluster_number --batch_size=N --epochs=M --print_detail='True' --print_acc='True' --save_models='True' --atom_file='atom' --res_file='res'
 ```
 
 ## Example for the testing and tutorial usage. (Data for the tutorial can be found in the data/ folder)
 
 ```
-python main_all.py --need_clustering=True --need_cal_feature=True --traj_file='test.nc' --top_file='test.pdb' --n_clusters=3 --batch_size=8 --epochs=10 --print_detail=1 --print_acc='True' --save_models=0 --atom_file='atom' --res_file='res'
+python main_all.py --need_clustering=True --need_cal_feature=True --traj_file='test.nc' --top_file='test.pdb' --n_clusters=3 --batch_size=8 --epochs=10 --print_detail='True' --print_acc='True' --save_models='True' --atom_file='atom' --res_file='res'
 ```
 
 
