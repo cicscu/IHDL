@@ -87,9 +87,9 @@ if __name__ == '__main__':
     print('--------class data process---------')
     model, history = cnn_train(model, X_train, y_train, X_test, y_test, 5, batch_size, epochs, if_dtl)
     
-    if (if_prt):
+    if if_prt == 'True':
         eva_cross_acc_all(model, X_train, X_test, y_train, y_test)
-    if (if_save):
+    if if_save == 'True':
         for t in range(5):
             model[t].save('model' + str(t) + '.h5')
             print("Models Saved.\n")
