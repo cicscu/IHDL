@@ -1,1 +1,14 @@
-SSS
+##clustering result:
+dbi=0.37467
+psf=5636.42
+ssr/sst=0.9224
+
+
+##cnn test result:
+the acc of model 0:   train: 0.9847    test:0.9619
+the acc of model 1:   train: 0.9867    test:0.9889
+the acc of model 2:   train: 0.9813    test:0.9833
+the acc of model 3:   train: 0.984    test:0.9944
+the acc of model 3:   train: 0.98    test:0.9722
+
+
