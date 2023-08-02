@@ -4,7 +4,7 @@ The user-friendly codes for aiding identification of the allosteric site and oth
 
 # about IHML
 
-The IHDL framework is developed by combining the unsupervised clustering and the interpretable CNN-based multi-classification models. Benefited from the technique advantages embedded in the framework like the auto-labeling capability of the unsupervised clustering, the pixel image representation of the conformation, powerful learning ability of CNN for images and locally linear approximation interpreter, the IHDL framework enables accurate conformation classification and identification of important residue deciding different conformational classes for any MD trajectory. 
+The IHML framework is developed by combining the unsupervised clustering and the interpretable CNN-based multi-classification models. Benefited from the technique advantages embedded in the framework like the auto-labeling capability of the unsupervised clustering, the pixel image representation of the conformation, powerful learning ability of CNN for images and locally linear approximation interpreter, the IHDL framework enables accurate conformation classification and identification of important residue deciding different conformational classes for any MD trajectory. 
 
 
 # Requirements:
