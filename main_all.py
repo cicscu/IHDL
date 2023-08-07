@@ -116,10 +116,12 @@ if __name__ == '__main__':
         workbook = xlsxwriter.Workbook(atom_file + '_cluster' + str(c) + '.xlsx')  # Create the file
         worksheet = workbook.add_worksheet()
         size = len(importance_pic[c])
+	worksheet.write(0, 0, 'atom')
+        worksheet.write(0, 1, 'score')
         for i in range(size):
             for j in range(size):
-                worksheet.write(i * size + j, 0, i * size + j + 1)
-                worksheet.write(i * size + j, 1, importance_pic[c][i][j])
+                worksheet.write(i * size + j+1, 0, i * size + j + 1)
+                worksheet.write(i * size + j+1, 1, importance_pic[c][i][j])
         workbook.close()
     print("Atom-scores Saved.\n")
 
