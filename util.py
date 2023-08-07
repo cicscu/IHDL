@@ -328,8 +328,11 @@ def res_score(atom_file, res_file, file0_2, c, fre):
     # Read atomic importance scores
     rbook = xlrd.open_workbook(atom_file + '_cluster' + str(c) + '.xlsx')
     rsheet = rbook.sheet_by_index(0)
-
+    i=0
     for row in rsheet.get_rows():
+	if i==0:
+            i=1
+            continue
         if (int(row[0].value) - 1) < len(bond):
             bond[int(row[0].value) - 1].append(row[1].value / fre)
 
@@ -358,8 +361,10 @@ def res_score(atom_file, res_file, file0_2, c, fre):
     # Save residue scores to file
     workbook = xlsxwriter.Workbook(res_file + '_cluster' + str(c) + '.xlsx')
     worksheet = workbook.add_worksheet()
+    worksheet.write(0, 0, 'residue')
+    worksheet.write(0, 1, 'score')
     for i in range(len(freq_sort)):
-        worksheet.write(i, 0, freq_sort[i][0])
-        worksheet.write(i, 1, freq_sort[i][1])
+        worksheet.write(i+1, 0, freq_sort[i][0])
+        worksheet.write(i+1, 1, freq_sort[i][1])
     workbook.close()
     print("Residue-scores " + str(c) + " saved.\n")
